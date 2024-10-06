@@ -16,6 +16,14 @@
 function myFunction() {
     window.open('https://akankshabhatnagar.netlify.app/')
 }
+ // Copy the original link function
+  var originalLinkFunction = s.ActivityMap.link;
+  // Return the link name from s.tl, a modified activity map value, or the original activity map value
+  s.ActivityMap.link = function(element,linkName)
+  {
+    return linkName || customFunction(element) || originalLinkFunction(element,linkName);
+  };        
+
         </script>
         <H1>Hey There..!</H1>
         <H2>welcome</H2>
@@ -23,6 +31,8 @@ function myFunction() {
         <button id="button2">click2</button>
         <button id="button3">click3</button>
         <button id="button4" onclick="myFunction()">click4</button>
+        <button type="button" onclick="s.tl(this,'o',customFunction(this)">Add To Cart</button>
+
     </body>
 
 </html>
